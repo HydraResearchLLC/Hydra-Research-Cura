@@ -1,0 +1,10 @@
+# Copyright (c) 2018 Ultimaker B.V.
+# Cura is released under the terms of the LGPLv3 or higher.
+
+CuraAppDisplayName = "@CURA_APP_DISPLAY_NAME@"
+CuraVersion = "@CURA_VERSION@"
+CuraBuildType = "@CURA_BUILDTYPE@"
+CuraDebugMode = True if "@_cura_debugmode@" == "ON" else False
+CuraSDKVersion = "@CURA_SDK_VERSION@"
+CuraCloudAPIRoot = "@CURA_CLOUD_API_ROOT@"
+CuraCloudAPIVersion = "@CURA_CLOUD_API_VERSION@"
