@@ -1,0 +1,147 @@
+{
+    "version": 2,
+    "name": "Hydra Research Nautilus - Single",
+    "inherits": "fdmprinter",
+    "metadata": {
+        "visible": true,
+        "author": "Hydra Research",
+        "manufacturer": "Hydra Research",
+		"category": "Hydra Research",
+        "file_formats": "text/x-gcode",
+        "icon": "icon_ultimaker2",
+        "platform": "hydra_research_nautilus_platform.stl",
+		"has_machine_quality": true,
+        "has_materials": true,
+        "has_machine_materials": true,
+        "has_variant_materials": true,
+		"has_variants": true,
+        "variants_name": "Tool Cartridge",
+        "preferred_variant_name": "X 0.40",
+		"preferred_quality_type": "Fast",
+        "machine_extruder_trains":
+        {
+            "0": "hydra_research_nautilus_extruder_single"
+			
+        }
+    },
+
+    "overrides": {
+        "machine_name": { "default_value": "Hydra Research Nautilus - Single" },
+        "machine_heated_bed": { "default_value": true },
+        "machine_width": { "default_value": 205 },
+        "machine_height": { "default_value": 220 },
+        "machine_depth": { "default_value": 205 },
+        "machine_center_is_zero": { "default_value": false },
+		"machine_nozzle_temp_enabled": { "value": false },
+		"default_material_print_temperature": { "value": "material_bed_temperature" },
+        "material_bed_temperature": { "default_value": 50 },
+        "retraction_amount": { "default_value": 0.8 },
+        "retraction_speed": { "default_value": 35 },
+        "retraction_retract_speed": { "default_value": 35 },
+        "retraction_prime_speed": { "default_value": 35 },
+        "adhesion_type": { "default_value": "none" },
+        "machine_head_with_fans_polygon": { "default_value": [[-31,31],[34,31],[34,-40],[-31,-40]] },
+        "gantry_height": { "default_value": 28 },
+		"machine_max_feedrate_x": { "default_value": 600 },
+        "machine_max_feedrate_y": { "default_value": 600 },
+        "machine_max_feedrate_z": { "default_value": 40},
+        "machine_max_feedrate_e": { "default_value": 120 },
+        "machine_max_acceleration_z": { "default_value": 1200 },
+        "machine_acceleration": { "default_value": 1200 },
+        "machine_max_jerk_xy": { "default_value": 8 },
+        "machine_max_jerk_z": { "default_value": 0.2 },
+        "machine_max_jerk_e": { "default_value": 2.5 },
+        "machine_gcode_flavor": { "default_value": "RepRap (RepRap)" },
+		"machine_extruder_count": { "default_value": 1 },
+        "machine_start_gcode": {
+            "default_value": "M98 P/sys/messageprintstart.g\nM104 S{material_print_temperature_layer_0} T0 ; set extruder temp\nM140 S{material_bed_temperature_layer_0} ; set bed temp\nG32 ; home xy\nM190 S{material_bed_temperature_layer_0} ; wait for bed temp\nM109 S{material_print_temperature_layer_0} T0; wait for extruder temp\nM83\nM572 D0 S{pressure_advance_value} ; set material pressure advance value\nG1 X-12.5 Y0 U0 F6000 ; Position for filament change\nM83\nT0\nM116 ; Wait for temperatures\nG1 E20 F80 ; Prime\n;wipe\nG1 X-12.5 Y60 F12000\nG1 Y20 F12000"
+			},
+        "machine_end_gcode": {
+            "default_value": "M98 P/sys/printend.g" 
+			},
+		
+
+		
+		"layer_height_0": { "value": "round(machine_nozzle_size / 1.6, 2)" },
+		"line_width": { "value": "round(machine_nozzle_size * 1.125, 3)" },
+		"wall_line_width_x": { "value": "round(wall_line_width, 2)" },
+		"infill_line_width": { "value": "round(line_width, 2)" },
+		"roofing_line_width": { "value": "machine_nozzle_size" },
+		"initial_layer_line_width_factor": { "value": "89" },
+
+		"wall_0_wipe_dist": { "value": "machine_nozzle_size"},
+		"wall_thickness": { "value": "line_width * 2"},
+		"roofing_layer_count": { "value": "1"},
+		"top_bottom_thickness": { "value": "line_width * 2" },
+		"top_thickness": { "value": "top_bottom_thickness + layer_height" },
+		"optimize_wall_printing_order": { "value": "True" },
+		"travel_compensate_overlapping_walls_enabled": { "value": "True" },
+		"fill_perimeter_gaps": { "value": "'everywhere'" },
+		"filter_out_tiny_gaps": { "value": "True" },
+		"fill_outline_gaps": { "value": "True" },
+		"xy_offset_layer_0": { "value": "-0.2"},
+		"z_seam_type": { "value": "'sharpest_corner'"},
+		"z_seam_corner": { "value": "'z_seam_corner_inner'"},
+		"skin_no_small_gaps_heuristic": { "value": "False" },
+		
+        "infill_sparse_density": { "value": "20" },
+		"infill_pattern": { "value": "'grid'" },
+		"zig_zaggify_infill": { "value": "gradual_infill_steps == 0" },
+		"infill_overlap": { "value": "3" },
+		"skin_overlap": { "value": "10" },
+		"infill_before_walls": { "value": "False" },
+		
+		"material_standby_temperature": { "value": "0" },
+		"retraction_enable": { "value": "True" },
+		"retract_at_layer_change": { "value": "True" },
+		"retraction_min_travel": { "value": "machine_nozzle_size * 4" },
+		"retraction_count_max": { "value": "10" },
+		"retraction_extrusion_window": { "value": "1"},
+		
+		"speed_travel": { "value": "250" },
+		"speed_travel_layer_0": { "value": "250" },
+		"skirt_brim_speed": { "value": "speed_print_layer_0" },
+		"speed_slowdown_layers": { "value": "1" },
+		"acceleration_enabled": { "value": "False" },
+		"acceleration_print": { "default_value": 1100 },
+		"acceleration_wall": { "value": "800" },
+		"acceleration_travel": { "value": "1100"},
+		"jerk_enabled": { "value": "False" },
+		"jerk_print": { "default_value": 8 },
+		"jerk_wall": { "default_value": 8 },
+		"jerk_travel": { "value": "8" },
+		
+		"retraction_combing": { "value": "'off'" },
+		"retraction_combing_max_distance": { "value": "1" },
+		"travel_retract_before_outer_wall": { "value": "True" },
+		"travel_avoid_distance": { "value": "machine_nozzle_size * 3.75" }, 
+		"layer_start_x": {"value": "205" },
+		"layer_start_y": {"value": "205" },
+		"retraction_hop_enabled": { "value": "True" },
+		"retraction_hop_only_when_collides": { "value": "True" },
+		"retraction_hop": { "value": "machine_nozzle_size" },
+		"retraction_hop_after_extruder_switch": { "value": "True" },
+		
+		"cool_fan_full_at_height": { "value": "layer_height_0 + 4 * layer_height" },
+        "cool_fan_speed": { "value": "50" },
+        "cool_fan_speed_max": { "value": "100" },
+        "cool_min_speed": { "value": "20" },
+	
+		"support_angle": { "value": "50" },
+        "support_pattern": { "value": "'zigzag'" },
+        "support_use_towers": { "value": "False" },
+        "support_xy_distance": { "value": "wall_line_width_0 * 2.5" },
+        "support_xy_distance_overhang": { "value": "wall_line_width_0" },
+		"support_interface_enable": { "value": "True" },
+		"support_interface_height": { "value": "1" },
+		"brim_width": { "default_value": 5 },
+		"support_brim_width": { "default_value": 5},
+		
+		"slicing_tolorance": { "value": "'middle'" },
+		"coasting_enable": { "value": "False" },
+		"bridge_settings_enabled": { "value": "True" },
+		"bridge_enable_more_layers": { "value": "False" }
+   
+		
+    }
+}

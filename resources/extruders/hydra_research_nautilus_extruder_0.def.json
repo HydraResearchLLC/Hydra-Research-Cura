@@ -1,0 +1,25 @@
+{
+    "id": "hydra_research_nautilus_extruder_0",
+    "version": 2,
+    "name": "Extruder 1",
+    "inherits": "fdmextruder",
+    "metadata": {
+        "machine": "hydra_research_nautilus",
+        "position": "0"
+    },
+
+    "overrides": {
+        "extruder_nr": {
+            "default_value": 0,
+            "maximum_value": "2"
+        },
+        "machine_nozzle_size": { "default_value": 0.4 },
+        "material_diameter": { "default_value": 1.75 },
+		"machine_extruder_start_code": {
+			"default_value": "\n;LOAD MATERIAL 1\n\nM572 D0 S{pressure_advance_value} ; set material pressure advance value\nG1 X-12.5 Y0 U0 F6000 ; Position for filament change\nM83\nM581 E1 T2 S-1 C1  ; Disable filament sensor\nT0\nG1 E25 F{load_speed_1} ; Load stage 1\nG1 E500 F{load_speed_2} ; Load stage 2\nG1 E100 F{load_speed_3} ; Load stage 3\nM104 S{material_print_temperature} T0 ; set extruder temp\nG1 E100 F{prime_speed} ; Prime\nG1 E{purge_amount} F{purge_speed} ; Purge\nM116 ; Wait for temperatures\nG1 E1.5 F100 ; Prime\nG1 E{switch_extruder_retraction_amount} F{switch_extruder_retraction_speed} ; Retract\n;wipe\nG1 Y25 X-12.5 F6000\nG1 Y60 F12000\nG1 Y25 F12000\nG1 Y60 F12000"         
+        },
+        "machine_extruder_end_code": {
+           "default_value": "\n;UNLOAD MATERIAL 1\n\nM581 E1 T2 S-1 C1 ; Disable filament sensor\nT0\nM913 E100\nM83\nG1 X-13.5 Y0 F6000\nG1 E{ramming_distance_1} F{ramming_speed_1} ; Ramming stage 1\nG1 E{ramming_distance_2} F{ramming_speed_2} ; Ramming stage 2\nG1 E{ramming_distance_3} F{ramming_speed_3} ; Ramming stage 3\nG1 E{ramming_distance_4} F{ramming_speed_4} ; Ramming stage 4\nG1 E{ramming_distance_5} F{ramming_speed_5} ; Ramming stage 5\nG1 E{ramming_distance_6} F{ramming_speed_6} ; Ramming stage 6\nG1 E-15 F{unload_speed_1} ; Unload stage 1\nG1 E-14 F{unload_speed_2} ; Unload stage 2\nG1 E-4 F600\nG1 E-2 F360\nG1 E{cool_distance_1} F{cool_speed_f} ; Cool move 1 forward\nG1 E-{cool_distance_1} F{cool_speed_b} ; Cool move 1 backward\nG1 E{cool_distance_2} F{cool_speed_f} ; Cool move 2 forward\nG1 E-{cool_distance_2} F{cool_speed_b} ; Cool move 2 backward\nG1 E-87 F{unload_speed_3} ; Unload stage 3\nG1 F{unload_speed_4} ; Unload stage 4 feedrate\nM98 P/sys/unloadlength.g ; Unload stage 4 distance\nG1 E-30 F{unload_speed_5} ; Unload stage 5\nM98 P/sys/filamentcut.g ; exicute filament cut"
+        }
+    }
+}

@@ -32,8 +32,7 @@ class PostProcessingPlugin(QObject, Extension):
     def __init__(self, parent = None) -> None:
         QObject.__init__(self, parent)
         Extension.__init__(self)
-        self.setMenuName(i18n_catalog.i18nc("@item:inmenu", "Post Processing"))
-        self.addMenuItem(i18n_catalog.i18nc("@item:inmenu", "Modify G-Code"), self.showPopup)
+        self.addMenuItem(i18n_catalog.i18n("Modify G-Code"), self.showPopup)
         self._view = None
 
         # Loaded scripts are all scripts that can be used

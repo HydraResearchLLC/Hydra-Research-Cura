@@ -27,7 +27,7 @@ RUN git clone -b $URANIUM_BRANCH --depth 1 https://github.com/Ultimaker/Uranium
 # Setup materials
 ENV MATERIALS_BRANCH=master
 WORKDIR $CURA_APP_DIR
-RUN git clone -b $MATERIALS_BRANCH --depth 1 https://github.com/Ultimaker/fdm_materials materials
+RUN git clone -b $MATERIALS_BRANCH --depth 1 https://github.com/HydraResearchLLC/fdm-materials materials
 
 # Setup Cura
 WORKDIR $CURA_APP_DIR/Cura

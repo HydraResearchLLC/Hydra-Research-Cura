@@ -489,7 +489,7 @@ Column
 
         Label
         {
-            id: buildplateLabel
+            id: bulidplateLabel
             text: catalog.i18nc("@label", "Build plate");
             width: Math.floor(parent.width * 0.45 - UM.Theme.getSize("default_margin").width)
             height: parent.height

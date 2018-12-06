@@ -130,8 +130,8 @@ numpy.seterr(all = "ignore")
 try:
     from cura.CuraVersion import CuraAppDisplayName, CuraVersion, CuraBuildType, CuraDebugMode, CuraSDKVersion  # type: ignore
 except ImportError:
-    CuraAppDisplayName = "Ultimaker Cura"
-    CuraVersion = "master"  # [CodeStyle: Reflecting imported value]
+    CuraAppDisplayName = "Hydra Research Cura"
+    CuraVersion = "Hydra"  # [CodeStyle: Reflecting imported value]
     CuraBuildType = ""
     CuraDebugMode = False
     CuraSDKVersion = "5.0.0"
@@ -1761,4 +1761,3 @@ class CuraApplication(QtApplication):
 
     def getSidebarCustomMenuItems(self) -> list:
         return self._sidebar_custom_menu_items
-

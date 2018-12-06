@@ -187,8 +187,7 @@ Item
             var result = ""
             if (base.technicalDataSheetUrl !== undefined)
             {
-                var tds_name = catalog.i18nc("@action:label", "Technical Data Sheet")
-                result += "<a href='%1'>%2</a>".arg(base.technicalDataSheetUrl).arg(tds_name)
+                result += "<a href='%1'>%2</a>".arg(base.technicalDataSheetUrl).arg("Technical Data Sheet")
             }
             if (base.safetyDataSheetUrl !== undefined)
             {
@@ -196,8 +195,7 @@ Item
                 {
                     result += "<br/>"
                 }
-                var sds_name = catalog.i18nc("@action:label", "Safety Data Sheet")
-                result += "<a href='%1'>%2</a>".arg(base.safetyDataSheetUrl).arg(sds_name)
+                result += "<a href='%1'>%2</a>".arg(base.safetyDataSheetUrl).arg("Safety Data Sheet")
             }
             if (base.printingGuidelinesUrl !== undefined)
             {
@@ -205,8 +203,7 @@ Item
                 {
                     result += "<br/>"
                 }
-                var pg_name = catalog.i18nc("@action:label", "Printing Guidelines")
-                result += "<a href='%1'>%2</a>".arg(base.printingGuidelinesUrl).arg(pg_name)
+                result += "<a href='%1'>%2</a>".arg(base.printingGuidelinesUrl).arg("Printing Guidelines")
             }
             return result
         }
